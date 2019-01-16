@@ -1,4 +1,4 @@
-# shadowsocks-api-controller
+# api-controller
 
 ## Project setup
 ```
