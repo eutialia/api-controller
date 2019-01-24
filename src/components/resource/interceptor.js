@@ -2,7 +2,7 @@ import Axios from 'axios'
 import Store from '../../store.js'
 import Router from '../../router.js'
 
-Axios.defaults.baseURL = 'http://localhost:4001'
+Axios.defaults.baseURL = Store.state.baseURL
 
 Axios.interceptors.request.use(config => {
   if (Store.getters.isLoggedIn) {

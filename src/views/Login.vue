@@ -6,6 +6,10 @@
       </md-card-header>
       <md-card-content>
         <md-field>
+          <label>Address</label>
+          <md-input v-model="url"></md-input>
+        </md-field>
+        <md-field>
           <label>Password</label>
           <md-input v-model="password" type="password"></md-input>
         </md-field>
@@ -24,11 +28,13 @@ export default {
   name: 'login',
   data: function () {
     return {
-      password: ''
+      password: '',
+      url: ''
     }
   },
   methods: {
     submitCredentials () {
+      this.$store.commit('set_url', this.url)
       this.$http.post(api.login, { password: this.password })
         .then(response => {
           if (response.status !== 201) {

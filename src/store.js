@@ -6,7 +6,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     status: '',
-    token: localStorage.getItem('token') || ''
+    token: localStorage.getItem('token') || '',
+    baseURL: ''
   },
   mutations: {
     auth_success: (state, token) => {
@@ -20,6 +21,9 @@ export default new Vuex.Store({
     logout: (state) => {
       state.status = ''
       state.token = ''
+    },
+    set_url: (state, url) => {
+      state.baseURL = url
     }
   },
   actions: {
